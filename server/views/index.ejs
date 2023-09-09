@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+      .title {
+        font-weight: bold;
+		font-size: 12;
+      }
+
+      .not-bold {
+        font-weight: normal;
+		font-size: 12;
+      }
+    </style>
+    <title>NVIDIA MNF DATA</title>
+</head>
+<body>
+    <h1>MNF DATA</h1>
+	<br/>
+	<h2>Filters</h2>
+	<div>
+		<span>TEST_DATE: </span>
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" pattern="\d{4}-\d{2}-\d{2}">
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" pattern="\d{4}-\d{2}-\d{2}">
+    </div>
+	<div>
+		<span>PN: </span>
+		<select id="pnSelector">
+			<% for (let i = 0; i < pnEnum.length; i++) { %>
+                <option value="<%= pnEnum[i] %>"/><%= pnEnum[i] %></option>
+            <% } %>
+		</select>
+	</div>
+	<div>
+		<span>TEST_TYPE: </span>
+		<select id="testTypeSelector">
+			<% for (let i = 0; i < testTypeEnum.length; i++) { %>
+                <option value="<%= testTypeEnum[i] %>"/><%= testTypeEnum[i] %></option>
+            <% } %>
+		</select>
+	</div>
+	<div>
+		<button id="btnCleanFilters">Clear All Filters</button>
+	</div>
+	
+	<br/>
+	<h2 class="title">Data<h2/>
+	<div class="not-bold">
+        <span>Success Rate: <%= passRate %>% (Pass: <%= lastQueryPassCount %> out of <%= lastQueryCount %>)</span>
+    </div>
+	<br/>
+    <table class="not-bold">
+        <thead>
+            <tr>
+                <th>PN</th>
+                <th>SN</th>
+				<th>TEST_TYPE</th>
+				<th>PASS</th>
+				<th>TEST_DATE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(item => { %>
+                <tr>
+                    <td><%= item.PN %></td>
+                    <td><%= item.SN %></td>
+					<td><%= item.TEST_TYPE %></td>
+					<td><%= item.PASS %></td>
+					<td><%= item.TEST_DATE %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <div class="not-bold">
+        <% if (page > 1) { %>
+            <a href="#" onclick="changePage(<%= page - 1 %>)">Previous</a>
+        <% } %>
+        <% if (page * pageSize < lastQueryCount) { %>
+            <a href="#" onclick="changePage(<%= page + 1 %>)">Next</a>
+        <% } %>
+    </div>
+    <div class="not-bold">
+        <span>Page <%= page %> of <%= Math.ceil(lastQueryCount / pageSize) %></span>
+        <select id="pageSelector">
+            <% for (let i = 1; i <= Math.ceil(lastQueryCount / pageSize); i++) { %>
+                <option value="<%= i %>" <%= i === page ? 'selected' : '' %>>Page <%= i %></option>
+            <% } %>
+        </select>
+    </div>
+	<br/>
+	<div>
+		<button id='btnDownload'>Download RAW Data</button>
+	</div>
+	<script type="text/javascript" src="/index_scripts.js"></script>
+</body>
+</html>
