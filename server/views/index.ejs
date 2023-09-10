@@ -30,6 +30,7 @@
 	<div>
 		<span>PN: </span>
 		<select id="pnSelector">
+			<option value=''/></option>
 			<% for (let i = 0; i < pnEnum.length; i++) { %>
                 <option value="<%= pnEnum[i] %>"/><%= pnEnum[i] %></option>
             <% } %>
@@ -38,6 +39,7 @@
 	<div>
 		<span>TEST_TYPE: </span>
 		<select id="testTypeSelector">
+			<option value=''/></option>
 			<% for (let i = 0; i < testTypeEnum.length; i++) { %>
                 <option value="<%= testTypeEnum[i] %>"/><%= testTypeEnum[i] %></option>
             <% } %>

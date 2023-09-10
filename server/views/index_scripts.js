@@ -33,9 +33,9 @@ function clearAllFilters() {
 	endDateInput.value = getCurrentDate();
 	
 	const pn = document.getElementById('pnSelector');
-	pn.value = '';
+	pn.value = 'All';
 	const testType = document.getElementById('testTypeSelector');
-	testType.value = '';
+	testType.value = 'All';
 	
 	window.location.href = currentUrl.href;
 }
@@ -68,15 +68,15 @@ function applyFilters() {
 		endDateInput.style.border = "1px solid red";
 		return;
 	}
-	if(pn){
-		currentUrl.searchParams.set('PN',pn);
-	}else {
+	if(!pn || pn == ''){
 		currentUrl.searchParams.delete('PN');
-	}
-	if(testType){
-		currentUrl.searchParams.set('TEST_TYPE',testType);
 	}else {
+		currentUrl.searchParams.set('PN',pn);
+	}
+	if(!testType || testType == ''){
 		currentUrl.searchParams.delete('TEST_TYPE');
+	}else {
+		currentUrl.searchParams.set('TEST_TYPE',testType);
 	}
 	window.location.href = currentUrl.href;
 }
