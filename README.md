@@ -23,17 +23,13 @@ Project of an http server written in node.js and communicate with mongo-db.
 	5.1. Download msi from https://nodejs.org/dist/v18.17.1/node-v18.17.1-x64.msi and run as administrator
 	5.2. Add nodejs installation dir path to System Env var PATH: C:\Program Files\nodejs\ 
 	5.3. Add npm dir path to System Env var PATH: %APPDATA%\npm (or you can use the path: C:\Users\<username>\AppData\Roaming\npm)
-6. Restore nvidiaDB:
-	6.1. Copy the database backup dir (nvidiaDB) to: c:\workspace\nvidia_app\data\
-	6.2. run the command: mongorestore --uri "mongodb://127.0.0.1:27017/" --db nvidia --collection mnf_data C:\workspace\nvidia_app\data\nvidiaDB\mnf_data.bson
 
 # Instructions:
 
-1. Open a new Windows Command Prompt and create dir app dir: MD C:\workspace\nvidia_app
-2. Go to app dir: cd c:\workspace\nvidia_app
-3. run command: npm init --yes (the --yes is for using the defaults of npm init).
-4. install express packages: npm install express mongodb ejs --save
-5. go to server dir: cd server
-6. run: node server.js
-7. open web browser and navigate to: http://127.0.0.1/find
+1. Clone the project into your project dir: git clone https://github.com/itaiaviv/nodejs-with-mongodb.git <projectDir>
+2. Navigate to project dir: cd <projectDir>
+3. Install required packages: npm install  (no need to mention the packages, it will take them from packages.json file)
+4. go to server dir: cd server
+5. run: node server.js
+6. open web browser and navigate to: http://127.0.0.1/find
 
