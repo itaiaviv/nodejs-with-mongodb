@@ -26,7 +26,7 @@ Project of an http server written in node.js and communicate with mongo-db.
 
 # Instructions:
 
-1. Clone the project into your project dir: git clone https://github.com/itaiaviv/nodejs-with-mongodb.git <projectDir>
+1. Clone the project into your project dir: git clone https://github.com/itaiaviv/nodejs-with-mongodb.git <project_dir_path>
 2. Navigate to project dir: cd <projectDir>
 3. Install required packages: npm install  (no need to mention the packages, it will take them from packages.json file)
 4. go to server dir: cd server
