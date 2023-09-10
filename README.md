@@ -2,8 +2,7 @@
 Example project of an http server written in node.js and communicates with mongo-db.
 
 # Prerequisites:
-1. Download and install mongoDB server:
-2. Download and install mongoDB server from: https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-7.0.1-signed.msi
+1. Download and install mongoDB server from: https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-7.0.1-signed.msi
 3. Add mongoDB bin dir path to System Env var PATH
 4. Download and install mongodb-database-tools from: https://fastdl.mongodb.org/tools/db/mongodb-database-tools-windows-x86_64-100.8.0.zip
 5. Unzip the zipped file to a directory in your area
